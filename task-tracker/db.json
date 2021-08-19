@@ -13,10 +13,10 @@
       "reminder": true
     },
     {
-      "id": "3",
-      "text": "Food shopping",
-      "day": "March 7th at 2:00pm",
-      "reminder": false
+      "text": "almoçar",
+      "day": "agora",
+      "reminder": true,
+      "id": "8ORe-u_"
     }
   ]
 }

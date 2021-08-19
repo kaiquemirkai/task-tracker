@@ -12,14 +12,14 @@ import Button from './Button'
 
 export default {
  name: 'Header',  
- props:{
+ props:{ // propriedades de um componente
      title: String,
      showAddTask: Boolean,
  },
  components:{
      Button
  },
- computed:{
+ computed:{ // computed é usado para fazer algum processamento que nao precisa de chamadas, por exemplo nome completo de uma pessoa
      homePage(){
          if(this.$route.path === '/'){
              return true

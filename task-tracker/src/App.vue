@@ -11,10 +11,11 @@
 </template>
 
 <script>
+//importando os componentes
 import Footer from './components/Footer'
 import Header from './components/Header'
 
-
+//exportando o APP com todas as funçoes dele
 export default {
   name: 'App',
   components: {

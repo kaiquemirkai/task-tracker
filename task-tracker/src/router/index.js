@@ -3,7 +3,7 @@ import {createRouter, createWebHistory} from 'vue-router'
 import About from '../views/About'
 import Home from '../views/Home'
 
-
+// array com todas as rotas do projeto
 const routes =[
     {
         path: '/about',
@@ -16,7 +16,7 @@ const routes =[
         component: Home
     }
 ]
-
+//roteador que cria o path do projeto com as rotas 
 const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),
     routes

@@ -12,20 +12,20 @@ import Tasks from '../components/Tasks'
 import AddTask from '../components/AddTask'
 export default {
   name: 'Home',
-  props: {
+  props: { // propriedade passada pela index para que o componente consiga trabalhar com a informação
     showAddTask: Boolean,
   },
-  components: {
+  components: {// Todos os componentes que a Home use
     Tasks,
     AddTask,
   },
   data() {
-    return {
+    return {// Instanciando a variavel que armazena todas as tasks
       tasks: [],
     }
   },
   methods: {
-    async addTask(task) {
+    async addTask(task) { //addTask
       const res = await fetch('api/tasks', {
         method: 'POST',
         headers: {
@@ -36,7 +36,7 @@ export default {
       const data = await res.json()
       this.tasks = [...this.tasks, data]
     },
-    async deleteTask(id) {
+    async deleteTask(id) { // deleteTask
       if (confirm('Are you sure?')) {
         const res = await fetch(`api/tasks/${id}`, {
           method: 'DELETE',
@@ -46,7 +46,7 @@ export default {
           : alert('Error deleting task')
       }
     },
-    async toggleReminder(id) {
+    async toggleReminder(id) { //metodo que busca uma task pelo id, e atualiza o reminder dela
       const taskToToggle = await this.fetchTask(id)
       const updTask = { ...taskToToggle, reminder: !taskToToggle.reminder }
       const res = await fetch(`api/tasks/${id}`, {
@@ -61,18 +61,18 @@ export default {
         task.id === id ? { ...task, reminder: data.reminder } : task
       )
     },
-    async fetchTasks() {
+    async fetchTasks() { //metodo getalltasks
       const res = await fetch('api/tasks')
       const data = await res.json()
       return data
     },
-    async fetchTask(id) {
+    async fetchTask(id) {// metodo getbyid
       const res = await fetch(`api/tasks/${id}`)
       const data = await res.json()
       return data
     },
   },
-  async created() {
+  async created() { //quando esses componente for criado, faça esse codigo
     this.tasks = await this.fetchTasks()
   },
 }
